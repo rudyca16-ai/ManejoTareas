@@ -33,7 +33,7 @@ steps:
     command: 'custom'
     custom: 'ef'
     projects: $(proyectoMVC)
-    arguments: 'database update --project $(proyectoMVC) --configuration $(buildConfiguration)'
+    arguments: 'database update --configuration $(buildConfiguration) --startup-project $(proyectoMVC)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Construyendo los artefactos...'
