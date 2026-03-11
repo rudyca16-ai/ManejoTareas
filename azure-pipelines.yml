@@ -10,7 +10,6 @@ pool:
   name: Selfhosted
 
 variables:
-  solution: '**/*.sln'
   buildConfiguration: 'Release'
   proyectoMVC: 'ManejoDeTareas/ManejoDeTareas.csproj'
 
@@ -20,7 +19,7 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '8.0.x'
-    
+
 - task: NuGetToolInstaller@1
 
 - task: DotNetCoreCLI@2
@@ -34,17 +33,23 @@ steps:
   inputs:
     command: 'custom'
     custom: 'tool'
-    arguments: 'install --global dotnet-ef'
+    arguments: 'install --global dotnet-ef --ignore-failed-sources'
 
-- script: dotnet ef database update --project "$(Build.SourcesDirectory)/ManejoDeTareas/ManejoDeTareas.csproj" --startup-project "$(Build.SourcesDirectory)/ManejoDeTareas/ManejoDeTareas.csproj" --configuration $(buildConfiguration) --connection "$(DefaultConnection)"
+- script: dotnet ef --version
+  displayName: 'Verificar EF Tools'
+
+- script: |
+    cd "$(Build.SourcesDirectory)/ManejoDeTareas"
+    dotnet ef database update --connection "$(DefaultConnection)"
   displayName: 'Aplicar migraciones EF'
-  
+
 - task: DotNetCoreCLI@2
   displayName: 'Construyendo los artefactos...'
   inputs:
     command: 'publish'
     publishWebProjects: false
-    arguments: 'database update --project $(proyectoMVC) --startup-project $(proyectoMVC) --configuration $(buildConfiguration)'
+    projects: $(proyectoMVC)
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --runtime win-x86 --self-contained'
     zipAfterPublish: false
     modifyOutputPath: false
 
