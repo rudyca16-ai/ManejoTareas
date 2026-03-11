@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  proyectoMVC: '**/ManejoDeTareas.csproj'
+  proyectoMVC: 'ManejodeTareas/ManejoDeTareas.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -32,7 +32,7 @@ steps:
   inputs:
     command: 'custom'
     custom: 'ef'
-    projects: '$(proyectoMVC)'
+    projects: $(proyectoMVC)
     arguments: 'database update --configuration $(buildConfiguration) --startup-project $(proyectoMVC)'
 
 - task: DotNetCoreCLI@2
@@ -40,7 +40,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(proyectoMVC)'
+    projects: $(proyectoMVC)
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --runtime win-x86 --self-contained'
     zipAfterPublish: false
     modifyOutputPath: false
