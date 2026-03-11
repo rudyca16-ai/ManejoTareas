@@ -10,7 +10,7 @@ pool:
   name: Selfhosted
 
 variables:
-  solution: '**/*.slnx'
+  solution: '**/*.sln'
   buildConfiguration: 'Release'
   proyectoMVC: 'ManejoDeTareas/ManejoDeTareas.csproj'
 
