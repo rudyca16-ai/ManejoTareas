@@ -49,7 +49,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: $(proyectoMVC)
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --runtime win-x86 --self-contained'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/webapp --runtime win-x86 --self-contained'
     zipAfterPublish: false
     modifyOutputPath: false
 
