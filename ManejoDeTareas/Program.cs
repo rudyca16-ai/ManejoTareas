@@ -1,5 +1,5 @@
-using Manejo_de_Tareas;
-using Manejo_de_Tareas.Servicios;
+using ManejoDeTareas;
+using ManejoDeTareas.Servicios;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

@@ -1,8 +1,8 @@
-using Manejo_de_Tareas.Models;
+using ManejoDeTareas.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Manejo_de_Tareas.Controllers
+namespace ManejoDeTareas.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,6 +1,6 @@
-﻿using Manejo_de_Tareas.Models;
+﻿using ManejoDeTareas.Models;
 
-namespace Manejo_de_Tareas.Servicios
+namespace ManejoDeTareas.Servicios
 {
     public interface IAlmacenadorArchivos
     {

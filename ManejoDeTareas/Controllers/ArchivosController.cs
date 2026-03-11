@@ -1,9 +1,9 @@
-﻿using Manejo_de_Tareas.Entidades;
-using Manejo_de_Tareas.Servicios;
+﻿using ManejoDeTareas.Entidades;
+using ManejoDeTareas.Servicios;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Manejo_de_Tareas.Controllers
+namespace ManejoDeTareas.Controllers
 {
     [Route("api/archivos")]
     public class ArchivosController : ControllerBase

@@ -1,4 +1,4 @@
-﻿namespace Manejo_de_Tareas.Servicios
+﻿namespace ManejoDeTareas.Servicios
 {
     public class Constantes
     {

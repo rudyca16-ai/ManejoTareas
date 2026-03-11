@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Manejo_de_Tareas.Migrations
+namespace ManejoDeTareas.Migrations
 {
     /// <inheritdoc />
     public partial class Pasos : Migration

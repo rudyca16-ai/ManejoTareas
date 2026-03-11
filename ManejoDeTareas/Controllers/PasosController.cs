@@ -1,10 +1,10 @@
-﻿using Manejo_de_Tareas.Entidades;
-using Manejo_de_Tareas.Models;
-using Manejo_de_Tareas.Servicios;
+﻿using ManejoDeTareas.Entidades;
+using ManejoDeTareas.Models;
+using ManejoDeTareas.Servicios;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Manejo_de_Tareas.Controllers
+namespace ManejoDeTareas.Controllers
 {
     [Route("api/pasos")]
     public class PasosController : ControllerBase

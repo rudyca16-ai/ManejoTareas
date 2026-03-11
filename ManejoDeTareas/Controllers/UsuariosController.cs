@@ -1,6 +1,6 @@
-﻿using Manejo_de_Tareas;
-using Manejo_de_Tareas.Models;
-using Manejo_de_Tareas.Servicios;
+﻿using ManejoDeTareas;
+using ManejoDeTareas.Models;
+using ManejoDeTareas.Servicios;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
-namespace Manejo_de_Tareas.Controllers
+namespace ManejoDeTareas.Controllers
 {
     public class UsuariosController : Controller
     {

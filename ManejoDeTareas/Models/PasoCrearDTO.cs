@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Manejo_de_Tareas.Models
+namespace ManejoDeTareas.Models
 {
     public class PasoCrearDTO
     {

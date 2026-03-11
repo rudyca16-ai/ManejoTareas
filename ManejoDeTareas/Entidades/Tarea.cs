@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace Manejo_de_Tareas.Entidades
+namespace ManejoDeTareas.Entidades
 {
     public class Tarea
     {

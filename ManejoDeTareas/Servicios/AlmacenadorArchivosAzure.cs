@@ -1,8 +1,8 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using Manejo_de_Tareas.Models;
+using ManejoDeTareas.Models;
 
-namespace Manejo_de_Tareas.Servicios
+namespace ManejoDeTareas.Servicios
 {
     public class AlmacenadorArchivosAzure : IAlmacenadorArchivos
     {

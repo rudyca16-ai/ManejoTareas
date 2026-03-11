@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Manejo_de_Tareas.Servicios
+namespace ManejoDeTareas.Servicios
 {
     public interface IServicioUsuarios
     {

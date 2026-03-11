@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Manejo_de_Tareas</RootNamespace>
+    <RootNamespace>ManejoDeTareas</RootNamespace>
     <UserSecretsId>9b164910-9da0-4da5-921b-4e58a4d1ef90</UserSecretsId>
   </PropertyGroup>
 

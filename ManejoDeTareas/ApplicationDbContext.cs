@@ -1,8 +1,8 @@
-﻿using Manejo_de_Tareas.Entidades;
+﻿using ManejoDeTareas.Entidades;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Manejo_de_Tareas
+namespace ManejoDeTareas
 {
     public class ApplicationDbContext : IdentityDbContext
     {

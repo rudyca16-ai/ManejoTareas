@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Manejo_de_Tareas.Entidades
+namespace ManejoDeTareas.Entidades
 {
     public class ArchivoAdjunto
     {
