@@ -36,7 +36,7 @@ steps:
     custom: 'tool'
     arguments: 'install --global dotnet-ef'
 
-- script: dotnet ef database update --project "$(Build.SourcesDirectory)/ManejoDeTareas/ManejoDeTareas.csproj" --startup-project "$(Build.SourcesDirectory)/ManejoDeTareas/ManejoDeTareas.csproj" --configuration $(buildConfiguration)
+- script: dotnet ef database update --project "$(Build.SourcesDirectory)/ManejoDeTareas/ManejoDeTareas.csproj" --startup-project "$(Build.SourcesDirectory)/ManejoDeTareas/ManejoDeTareas.csproj" --configuration $(buildConfiguration) --connection "$(DefaultConnection)"
   displayName: 'Aplicar migraciones EF'
   
 - task: DotNetCoreCLI@2
