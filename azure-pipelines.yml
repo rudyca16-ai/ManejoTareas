@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  proyectoMVC: 'ManejodeTareas/ManejoDeTareas.csproj'
+  proyectoMVC: 'ManejoDeTareas/ManejoDeTareas.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
