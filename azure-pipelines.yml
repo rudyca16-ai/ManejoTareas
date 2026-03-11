@@ -23,9 +23,11 @@ steps:
     
 - task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
+  displayName: 'Restaurar dependencias'
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Instalar EF Tools'
@@ -39,9 +41,9 @@ steps:
   inputs:
     command: 'custom'
     custom: 'ef'
-    projects: $(proyectoMVC)
+    projects: '$(proyectoMVC)'
     arguments: 'database update --configuration $(buildConfiguration) --startup-project $(proyectoMVC)'
-
+    
 - task: DotNetCoreCLI@2
   displayName: 'Construyendo los artefactos...'
   inputs:
