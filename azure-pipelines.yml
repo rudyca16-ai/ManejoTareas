@@ -49,8 +49,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: $(proyectoMVC)
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --runtime win-x86 --self-contained'
+    arguments: 'database update --project $(proyectoMVC) --startup-project $(proyectoMVC) --configuration $(buildConfiguration)'
     zipAfterPublish: false
     modifyOutputPath: false
 
