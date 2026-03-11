@@ -10,6 +10,7 @@ pool:
   name: Selfhosted
 
 variables:
+  solution: '**/*.slnx'
   buildConfiguration: 'Release'
   proyectoMVC: 'ManejoDeTareas/ManejoDeTareas.csproj'
 
@@ -18,7 +19,7 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '**/*.sln'
+    restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Instalar EF Tools'
