@@ -58,10 +58,10 @@ async function insertarPaso(paso, data, idTarea) {
 
         const tarea = obtenerTareaEnEdicion();
 
-        tarea.pasosTotal(tarea.pasosTotal() + 1);
+        tareaEnEdicion.pasosTotal(tareaEnEdicion.pasosTotal() + 1);
 
         if (paso.realizado()) {
-            tarea.pasosRealizados(tarea.pasosRealizados() + 1);
+            tareaEnEdicion.pasosRealizados(tareaEnEdicion.pasosRealizados() + 1);
         }
 
     } else {

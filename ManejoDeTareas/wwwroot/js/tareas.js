@@ -85,6 +85,7 @@ async function enviarIdsTareasAlBackend(ids) {
     });
 }
 
+let tareaEnEdicion = null;
 async function manejarClickTarea(tarea) {
     if (tarea.esNuevo()) {
         return;
@@ -103,6 +104,8 @@ async function manejarClickTarea(tarea) {
     }
 
     const json = await respuesta.json();
+
+    tareaEnEdicion = tarea; // guardar la referencia al objeto del array
 
     tareaEditarVM.id = json.id;
     tareaEditarVM.titulo(json.titulo);
