@@ -1,5 +1,10 @@
 ﻿function agregarNuevaTareaAlListado() {
-    tareaListadoViewModel.tareas.push(new tareaElementoListadoViewModel({ id: 0, titulo: '' }));
+    tareaListadoViewModel.tareas.push(new tareaElementoListadoViewModel({
+        id: 0,
+        titulo: '',
+        pasosTotal: 0,      
+        pasosRealizados: 0
+    }));
 
     $("[name=titulo-tarea]").last().focus();
 
@@ -91,6 +96,8 @@ async function manejarClickTarea(tarea) {
         return;
     }
 
+    tareaEnEdicion = tarea; // guardar la referencia al objeto del array
+
     const respuesta = await fetch(`${urlTareas}/${tarea.id()}`, {
         method: 'GET',
         headers: {
@@ -105,7 +112,6 @@ async function manejarClickTarea(tarea) {
 
     const json = await respuesta.json();
 
-    tareaEnEdicion = tarea; // guardar la referencia al objeto del array
 
     tareaEditarVM.id = json.id;
     tareaEditarVM.titulo(json.titulo);

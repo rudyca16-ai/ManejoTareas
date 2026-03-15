@@ -56,8 +56,7 @@ async function insertarPaso(paso, data, idTarea) {
         const json = await respuesta.json();
         paso.id(json.id);
 
-        const tarea = obtenerTareaEnEdicion();
-
+        //const tarea = obtenerTareaEnEdicion();
         tareaEnEdicion.pasosTotal(tareaEnEdicion.pasosTotal() + 1);
 
         if (paso.realizado()) {
