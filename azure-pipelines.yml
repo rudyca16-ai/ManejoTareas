@@ -10,31 +10,38 @@ pool:
   name: Selfhosted
 
 variables:
-  solution: '**/*.slnx'
   buildConfiguration: 'Release'
   proyectoMVC: 'ManejoDeTareas/ManejoDeTareas.csproj'
 
 steps:
+- task: UseDotNet@2
+  displayName: 'Instalar .NET 8 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+
 - task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
+  displayName: 'Restaurar dependencias'
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Instalar EF Tools'
   inputs:
     command: 'custom'
     custom: 'tool'
-    arguments: 'install --global dotnet-ef'
+    arguments: 'install --global dotnet-ef --ignore-failed-sources'
 
-- task: DotNetCoreCLI@2
+- script: dotnet ef --version
+  displayName: 'Verificar EF Tools'
+
+- script: |
+    cd "$(Build.SourcesDirectory)/ManejoDeTareas"
+    dotnet ef database update --connection "$(DefaultConnection)"
   displayName: 'Aplicar migraciones EF'
-  inputs:
-    command: 'custom'
-    custom: 'ef'
-    projects: $(proyectoMVC)
-    arguments: 'database update --configuration $(buildConfiguration) --startup-project $(proyectoMVC)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Construyendo los artefactos...'
@@ -42,7 +49,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: $(proyectoMVC)
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --runtime win-x86 --self-contained'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/webapp --runtime win-x86 --self-contained'
     zipAfterPublish: false
     modifyOutputPath: false
 
